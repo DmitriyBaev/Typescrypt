@@ -18,8 +18,17 @@ test('add movie', () => {
   const cart = new Cart();
 
   cart.add(new Movie(1010, 'Мстители', 150, 2012, 'США', 'Avengers assemble!', 'фантастика, боевик, фэнтези, приключения', '137 минут'))
-  expect(cart.items).toEqual([1010, 'Мстители', 150, 2012, 'США', 'Avengers assemble!', 'фантастика, боевик, фэнтези, приключения', '137 минут']);
-});
+  expect(cart.items).toEqual([{
+    id: 1010,
+    name: 'Мстители',
+    price: 150,
+    year: 2012,
+    country: 'США',
+    slogan: 'Avengers assemble!',
+    genre: 'фантастика, боевик, фэнтези, приключения',
+    time: '137 минут',
+  }]);
+})
 
 test('sumPrice', () => {
   
@@ -34,4 +43,4 @@ test('sumPriceWithDiscont', () => {
   test('deleteObject', () => {
     cart.deleteObject(1008)
     expect(cart.items.length).toBe(2);
-    })
+  })
